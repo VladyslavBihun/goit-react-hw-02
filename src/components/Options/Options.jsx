@@ -1,5 +1,3 @@
-// Options.jsx
-
 const Options = ({ onLeaveFeedback, totalFeedback, onResetFeedback }) => {
   return (
     <div>

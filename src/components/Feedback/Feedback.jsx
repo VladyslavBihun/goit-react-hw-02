@@ -1,5 +1,3 @@
-// Feedback.jsx
-
 const Feedback = ({ values, totalFeedback }) => {
   return (
     <div>
