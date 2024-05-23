@@ -21,12 +21,24 @@ function App() {
     });
   };
 
+  const onResetFeedback = () => {
+    setValues({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
   const totalFeedback = values.good + values.neutral + values.bad;
 
   return (
     <div>
       <Description />
-      <Options onLeaveFeedback={onLeaveFeedback} />
+      <Options
+        onLeaveFeedback={onLeaveFeedback}
+        totalFeedback={totalFeedback}
+        onResetFeedback={onResetFeedback}
+      />
       {totalFeedback > 0 ? (
         <Feedback values={values} totalFeedback={totalFeedback} />
       ) : (

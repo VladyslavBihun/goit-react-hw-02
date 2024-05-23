@@ -1,6 +1,6 @@
 // Options.jsx
 
-const Options = ({ onLeaveFeedback }) => {
+const Options = ({ onLeaveFeedback, totalFeedback, onResetFeedback }) => {
   return (
     <div>
       <button onClick={() => onLeaveFeedback("good")}>Good</button>
@@ -9,7 +9,7 @@ const Options = ({ onLeaveFeedback }) => {
 
       <button onClick={() => onLeaveFeedback("bad")}>Bad</button>
 
-      {/* <button>Reset</button> */}
+      {totalFeedback > 0 && <button onClick={onResetFeedback}>Reset</button>}
     </div>
   );
 };
