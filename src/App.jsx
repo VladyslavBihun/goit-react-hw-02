@@ -5,6 +5,7 @@ import { useState } from "react";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
+import Notification from "./components/Notification/Notification";
 
 function App() {
   const [values, setValues] = useState({
@@ -20,11 +21,17 @@ function App() {
     });
   };
 
+  const totalFeedback = values.good + values.neutral + values.bad;
+
   return (
     <div>
       <Description />
       <Options onLeaveFeedback={onLeaveFeedback} />
-      <Feedback values={values} />
+      {totalFeedback > 0 ? (
+        <Feedback values={values} totalFeedback={totalFeedback} />
+      ) : (
+        <Notification />
+      )}
     </div>
   );
 }
